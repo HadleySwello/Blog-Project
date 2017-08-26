@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   # POST /comments
   def create
-    Comment.create(post_params)
+    Comment.create(comment_params)
     @comment = Comment.new(comment_params)
 
     if @comment.save
@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1
   def update
+    Comment.update(comment_params)
     if @comment.update(comment_params)
       render json: @comment
     else

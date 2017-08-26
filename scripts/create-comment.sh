@@ -10,6 +10,7 @@ curl "${API}${URL_PATH}" \
   --data '{
     "comment": {
       "user_id": "1",
+      "post_id" : "1",
       "title": "This is a comment title",
       "content": "This is comment content"
     }
