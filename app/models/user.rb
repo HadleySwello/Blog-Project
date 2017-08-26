@@ -2,5 +2,6 @@
 
 class User < ApplicationRecord
   include Authentication
-  has_many :examples, :posts, :comments
+  has_many :posts
+  has_many :comments
 end
