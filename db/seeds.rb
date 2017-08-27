@@ -11,3 +11,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(email: 'hadleysweck@gmail.com', password: 'open123', admin: true)
 Post.create(title: 'My First Post', content: 'This is a test post to seed data in my database.', user_id: 1)
+Comment.create(title: 'My First Comment', content: 'This is a test comment to seed data in my database.', user_id: 1, post_id: 1)
