@@ -37,22 +37,25 @@ ActiveRecord::Schema.define(version: 4) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",    default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",           null: false
-    t.string   "token",           null: false
-    t.string   "password_digest", null: false
-    t.boolean  "admin",           null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "email",                           null: false
+    t.string   "token",                           null: false
+    t.string   "password_digest",                 null: false
+    t.boolean  "admin",           default: false, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "examples", "users"
+  add_foreign_key "posts", "users"
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PostsController < ApplicationController
+class PostsController < ProtectedController
   before_action :set_post, only: %i[show update destroy]
 
   # GET /posts
@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    Post.create(post_params)
     @post = Post.new(post_params)
     # binding.pry
     if @post.save
