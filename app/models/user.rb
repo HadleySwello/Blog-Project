@@ -2,6 +2,6 @@
 
 class User < ApplicationRecord
   include Authentication
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
