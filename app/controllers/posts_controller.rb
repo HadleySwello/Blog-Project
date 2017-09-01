@@ -28,7 +28,6 @@ class PostsController < ProtectedController
 
   # PATCH/PUT /posts/1
   def update
-    Post.update(post_params)
     if @post.update(post_params)
       render json: @post
     else
